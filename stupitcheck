@@ -1,4 +1,3 @@
-#!/usr/bin/bash
 
 stupdirs=(
 /System/Library/StartupItems
