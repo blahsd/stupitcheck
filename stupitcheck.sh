@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+
+stupdirs=(
+/System/Library/StartupItems
+/Library/StartupItems
+/Library/LaunchDaemons
+/Library/LaunchAgents
+~/Library/LaunchAgents
+)
+
+stupit=($( find ${stupdirs[@]} -name "*.*" ))
+
+for i in "${stupit[@]}"
+do
+  echo
+	read -p "[K]eep or [d]elete $i ?" -n 1 -r
+  if [[ $REPLY =~ ^[d]$ ]]
+  then
+    echo
+    echo "\nDeleting '$i'..."
+    sudo rm -f $i
+  fi
+done
